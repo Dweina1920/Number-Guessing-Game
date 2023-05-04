@@ -1,4 +1,4 @@
-// Good luck!
+// Good luck Dina !
 
 let estoyJugando = true;
 let numeroCorrecto = Math.floor(Math.random() * 100);
