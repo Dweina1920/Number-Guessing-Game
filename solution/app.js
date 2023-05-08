@@ -7,9 +7,25 @@ const remaining = document.querySelector('.lastResult');
 const startOver = document.querySelector('.resultParas');
 const lowOrHi = document.querySelector('.lowOrHi');
 const p = document.createElement('p');
+const start = document.querySelector('#start')
 let previousGuesses = [];
 let numGuesses = 1;
 let playGame = true;
+let remainigSeconds = 5;
+document.querySelector('#remaning-time').innerHTML = remainigSeconds;
+//cada segundo se ejecuta la función
+
+const counter = setInterval(function updateRemaningTime(){
+    document.querySelector('#remaning-time').innerHTML = --remainigSeconds;
+    if(remainigSeconds == 0){
+        lowOrHi.innerHTML=`<h1>Time Over, the correct number is ${randomNumber}</h1>`
+        clearInterval(counter)
+        userInput.readOnly="true";
+        submit.disabled="true";
+        
+    }
+}, 1000)
+
 
 if (playGame){
     subt.addEventListener('click', function(e){
